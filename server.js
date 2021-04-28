@@ -1,6 +1,13 @@
 const express = require('express') // require means import
 const app = express() // app is now an instance of the express library
 
+const mongoose = require('mongoose');
+mongoose.connect(
+    'mongodb://localhost:27017/whiteboard',
+    {useNewUrlParser: true, useUnifiedTopology: true}
+    );
+
+
 // this configures CORS
 app.use(function (
     req,
