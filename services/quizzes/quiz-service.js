@@ -1,23 +1,28 @@
-
 const quizzes = require('./quizzes.json')
 const quizzesModel = require("../../db/quizzes/quizzes-model")
 
-const createQuiz = () => {}
+const createQuiz = () => {
+}
 
-const deleteQuiz = () => {}
+const deleteQuiz = () => {
+}
 
 const findAllQuizzes = () => {
     // return quizzes
+    // this return is synchronous meaning: the execution doesn't stop (stops waiting to have this data?) until i'm ready to return this
+    // .find() is asynchronous however, it returns a promise, so in the controller, you're not getting the actual quizzes, you're getting the promise.
     return quizzesModel.find()
 }
 
 const findQuizById = (qid) => {
-    return quizzes.find((quiz) => {
-        return (quiz._id === qid)
-    })
+    return quizzesModel.findById(qid)
+    // return quizzes.find((quiz) => {
+    //     return (quiz._id === qid)
+    // })
 }
 
-const updateQuiz = () => {}
+const updateQuiz = () => {
+}
 
 module.exports = {
     createQuiz,
