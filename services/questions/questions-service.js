@@ -1,4 +1,4 @@
-const questions = require("./questions.json")
+// const questions = require("./questions.json")
 const questionsModel = require("../../db/questions/questions-model")
 
 
@@ -34,6 +34,6 @@ module.exports = {
     deleteQuestion,
     findAllQuestions,
     findQuestionsForQuiz,
-    findQuestionById,
+    findQuestionById: findQuestionById,
     updateQuestion
 }

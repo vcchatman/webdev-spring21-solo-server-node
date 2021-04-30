@@ -3,7 +3,7 @@ const app = express() // app is now an instance of the express library
 
 const mongoose = require('mongoose');
 mongoose.connect(
-    'mongodb://localhost:27017/whiteboard',
+    'mongodb://localhost:27017/whiteboard-01',
     {useNewUrlParser: true, useUnifiedTopology: true}
     );
 
