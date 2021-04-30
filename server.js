@@ -1,9 +1,10 @@
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
 
 const express = require('express') // require means import
 const app = express() // app is now an instance of the express library
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const mongoose = require('mongoose');
 mongoose.connect(
