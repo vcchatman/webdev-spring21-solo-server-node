@@ -11,8 +11,6 @@ module.exports = (app) => {
 
     const findQuestionsForQuiz = (req, res) => {
         const quizId = req.params.quizId
-        // const questions = questionService.findQuestionsForQuiz(quizId)
-        // res.send(questions)
         questionService.findQuestionsForQuiz(quizId)
             .then((questions) => {
                 res.send(questions)
@@ -22,12 +20,12 @@ module.exports = (app) => {
     const findQuestionById = (req, res) => {
         const questionId = req.params['questionId']
         questionService.findQuestionById(questionId)
-            .then((quiz) => {
-                res.send(quiz)
+            .then((question) => {
+                res.send(question)
             })
     }
 
-    app.get("/api/questions", findAllQuestions); // RESTful convention
+    app.get("/api/questions", findAllQuestions);
     app.get("/api/quizzes/:quizId/questions", findQuestionsForQuiz);
     app.get("/api/questions/:questionId", findQuestionById);
 }

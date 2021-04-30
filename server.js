@@ -1,3 +1,7 @@
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 const express = require('express') // require means import
 const app = express() // app is now an instance of the express library
 
@@ -8,7 +12,6 @@ mongoose.connect(
     );
 
 
-// this configures CORS
 app.use(function (
     req,
     res, next
@@ -26,16 +29,9 @@ app.use(function (
 });
 
 
-const demos = require('./controllers/demo-controller')
-
-demos(app)
-
-// const quizzesController = require('./controllers/quizzes-controller')
-// quizzesController(app)
-
-// this below is the same thing as above but more terse. this require is bound to a function. so the LHS evaluates to the function module.exports(app) from the quizzesController. And it takes in an app as argument and that's what we're giving it
 require("./controllers/quizzes-controller")(app)
 require("./controllers/questions-controller")(app)
+require("./controllers/quiz-attempts-controller")(app)
 
-app.listen(3000) // sets up the server
+app.listen(3000)
 
